@@ -1,0 +1,144 @@
+#include <Keypad.h>
+const byte ROWS = 4; 
+const byte COLS = 4; 
+char keys[ROWS][COLS] = {
+{'F', 'B', '7', '3'}, {'E','A','6', '2'},
+{'D', '9', '5', '1'}, {'C', '8', '4', '0'}
+};
+byte rowPins[ROWS] = {5, 4, 3, 2};
+byte colPins[COLS] = {9, 8, 7, 6};
+Keypad keypad =
+Keypad( makeKeymap(keys), rowPins,
+colPins, ROWS, COLS );
+void setup()
+{ 
+  pinMode(A0, OUTPUT); 
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(A3, OUTPUT);
+  pinMode(A4, OUTPUT);
+  pinMode(A5, OUTPUT);
+  pinMode(13, OUTPUT);
+
+Serial.begin(9600);
+}
+void loop()
+{
+char key = keypad.getKey();
+if (key != NO_KEY){
+Serial.println(key);
+}
+switch(key)
+{
+  case '0':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 1);
+    digitalWrite(A4, 1);
+    digitalWrite(A5, 1);
+    digitalWrite(13, 0); 
+    break;
+  }
+  case '1':
+  {
+    digitalWrite(A0, 0);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 0);
+    digitalWrite(A4, 0);
+    digitalWrite(A5, 0);
+    digitalWrite(13, 0); 
+     break;
+  }
+   case '2':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 0);
+    digitalWrite(A3, 1);
+    digitalWrite(A4, 1);
+    digitalWrite(A5, 0);
+    digitalWrite(13, 1); 
+     break;
+  }
+   case '3':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 1);
+    digitalWrite(A4, 0);
+    digitalWrite(A5, 0);
+    digitalWrite(13, 1); 
+     break;
+  }
+   case '4':
+  {
+    digitalWrite(A0, 0);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 0);
+    digitalWrite(A4, 0);
+    digitalWrite(A5, 1);
+    digitalWrite(13, 1); 
+     break;
+  }
+   case '5':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 0);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 1);
+    digitalWrite(A4, 0);
+    digitalWrite(A5, 1);
+    digitalWrite(13, 1); 
+     break;
+  }
+   case '6':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 0);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 1);
+    digitalWrite(A4, 1);
+    digitalWrite(A5, 1);
+    digitalWrite(13, 1); 
+     break;
+  }
+   case '7':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 0);
+    digitalWrite(A4, 0);
+    digitalWrite(A5, 0);
+    digitalWrite(13, 0); 
+     break;
+  }
+   case '8':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 1);
+    digitalWrite(A4, 1);
+    digitalWrite(A5, 1);
+    digitalWrite(13, 1); 
+     break;
+  }
+   case '9':
+  {
+    digitalWrite(A0, 1);
+    digitalWrite(A1, 1);
+    digitalWrite(A2, 1);
+    digitalWrite(A3, 1);
+    digitalWrite(A4, 0);
+    digitalWrite(A5, 1);
+    digitalWrite(13, 1); 
+     break;
+  }
+}
+}
